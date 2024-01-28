@@ -47,6 +47,7 @@ a {
     color: var(--yellow);
     text-decoration: none;
     position: relative;
+    font-weight: bold;
 }
 
 a:hover {
