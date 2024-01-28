@@ -1,0 +1,416 @@
+:root {
+    --bg: #141416;
+    /* --bg-lighter: #141416; */
+    --font: #f0f8ff;
+    --font-secondary: #c4cbd1;
+    --purple-light: #a331a7;
+    --purple-dark: #6f287f;
+    --yellow: #f4a949; 
+    --yellow-darker: #cc8b35;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--font); 
+    background-color: var(--bg); 
+    /* background: linear-gradient(135deg, var(--bg), var(--bg-lighter), var(--bg)); */
+    padding: 2em 1em;
+}
+
+/* Utilities */
+
+.aligned-text {
+    text-align: center;
+}
+
+/* Typography */
+
+h1 {
+    font-size: 2.25rem;
+}
+
+p {
+    color: var(--font-secondary)
+}
+
+/* Links Style */
+
+a {
+    color: var(--yellow);
+    text-decoration: none;
+    position: relative;
+}
+
+a:hover {
+    color: var(--yellow-darker);
+}
+
+a:hover .arrow-link {
+    transform: translateX(10px);
+}
+
+.arrow-link {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Section Styles */
+
+section {
+    padding: 2em 1em;
+    min-height: 100vh;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100px);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+/* Home Section */
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.homepage-pic {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    #home {
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 5em;
+    }
+
+    .homepage-pic {
+        width: 50%;
+        margin: 0;
+    }
+
+    #home p {
+        max-width: 450px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #home {
+        gap: 10em;
+    }
+    
+    #home p {
+        max-width: 600px;
+    }
+}
+
+/* Skills Section */
+
+#skills {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tools {
+    margin-top: 2em;
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+.tool {
+    flex-grow: 0;
+    flex-basis: 100px;
+    width: 100px;
+}
+
+.tool-icon {
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+}
+
+.tool-name {
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 720px) {
+    .tool-icon {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* Projects Section */
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+#projects-container {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+}
+
+.project {
+    margin: 0 auto; 
+    max-width: 300px;
+}
+
+.project-pic {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: .75em;
+}
+
+.project-name {
+    font-size: 1.5rem;
+}
+
+.project-desc {
+    font-size: 1rem;
+}
+
+.visit-site-link {
+    margin-top: auto;  
+}
+
+@media screen and (min-width: 768px) {
+    #projects p:not(#projects-container p) {
+        max-width: 750px;
+    }
+
+    #projects-container {
+        justify-content: space-evenly; 
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3em;
+    }
+    
+    .project {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        max-width: 600px;
+        margin: 0; 
+    }
+
+    .project-pic {
+        max-width: 300px;
+    }
+}
+
+/* Header Style in Projects page */ 
+
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 4em;
+}
+
+header p {
+    min-width: 280px;
+    max-width: 800px;
+    width: 60%;
+}
+
+#search {
+    font-size: .9rem;
+    padding: 1em;
+    margin-top: 1em;
+    border-radius: 8px;
+    width: 280px;
+    outline: none;
+    background: var(--bg);
+    border: 2px solid var(--font);
+    color: var(--font);
+    text-align: center;
+}
+
+#search::placeholder {
+    color: var(--font-secondary);
+}
+
+#search:focus {
+    border: 2px solid var(--yellow);
+}
+
+@media screen and (min-width: 768px) {
+    #search {
+        width: 600px;
+    }
+}
+
+/* Contact Section */
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    margin: 0 auto;
+}
+
+.contact-details {
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.socials {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-icon {
+    width: 40px;
+}
+
+.social-icon:hover {
+    opacity: 0.75;
+}
+
+@media screen and (min-width: 620px) {
+    #contact {
+        gap: 4em;
+        flex-direction: row;
+    }
+
+    .contact-details {
+        text-align: left;
+    }
+
+    .social-icon {
+        width: 55px;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    #contact {
+        gap: 6em;
+    }
+}
+
+@media screen and (min-width: 1120px) {
+    #contact {
+        gap: 8em;
+    }
+}
+
+/* Animated Earth */
+
+.earth-container {
+    transform-style: preserve-3d;
+}
+
+.earth {
+    width: 250px;
+    height: 250px;
+    background-image: url("/images/earth.jpg");
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: repeat-x;
+    box-shadow: 8px 8px 24px #202029;
+    animation: animateEarth 30s linear infinite;
+}
+
+@media screen and (min-width: 420px) {
+    .earth {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .earth {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    .earth {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+@media screen and (min-width: 1120px) {
+    .earth {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@keyframes animateEarth {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -750px 0;
+    }
+}
+
+/* General Media Queries */
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    h1 {
+        font-size: 4rem;
+    }
+}
